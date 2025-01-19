@@ -49,7 +49,7 @@ const graphicalProps = [
   },
   {
     id: 'xPos',
-    label: 'The X Axis',
+    label: 'left and right',
     digits: 3,
     range: 1,
     defaultVal: 0,
@@ -57,7 +57,7 @@ const graphicalProps = [
   },
   {
     id: 'yPos',
-    label: 'The Y Axis',
+    label: 'up and down',
     digits: 3,
     range: 1,
     defaultVal: 0,
@@ -149,7 +149,7 @@ const colourProps = [
   },
   {
     id: 'lColour',
-    label: 'ah my eyes',
+    label: 'discord light mode',
     unit: '%',
     digits: 0,
     range: 100,
