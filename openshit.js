@@ -181,6 +181,24 @@ zoomInBtn.addEventListener('click', e => {
     updateScale(BASE_SCALE * 2 ** ++logScale);
   }
 });
+scrollWrapper.addEventListener('wheel', e => {
+  if (e.altKey) {
+    e.preventDefault(); // Prevent default scrolling behavior
+
+    const zoomStep = 0.5; // Finer zoom increments
+
+    if (e.deltaY < 0 && logScale < MAX_SCALE) {
+      logScale += zoomStep; // Increase zoom gradually
+    } else if (e.deltaY > 0 && logScale > 0) {
+      logScale -= zoomStep; // Decrease zoom gradually
+    }
+    
+    updateScale(BASE_SCALE * Math.pow(2, logScale));
+  }
+});
+
+
+
 function renderScale() {
   while (timeMarkers.firstChild) timeMarkers.removeChild(timeMarkers.firstChild);
   const majorStep = 20 * 2 ** (-logScale);
