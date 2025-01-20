@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -8,11 +8,13 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./openshit.css">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🅱️</text></svg>" />
+    
     <script src="https://doodle51.github.io/bacc-studio/dom2.js" charset="utf-8"></script>
     <script src="https://doodle51.github.io/bacc-studio/jszip.min.js" charset="utf-8"></script>
     <script src="https://doodle51.github.io/bacc-studio/bezier-easing.js" charset="utf-8"></script>
     <script src="https://doodle51.github.io/bacc-studio/easingFunctions.js" charset="utf-8"></script>
-
     <script src="https://doodle51.github.io/bacc-studio/utils.js" charset="utf-8"></script>
     <script src="https://doodle51.github.io/bacc-studio/menu.js" charset="utf-8"></script>
     <script src="https://doodle51.github.io/bacc-studio/sources.js" charset="utf-8"></script>
@@ -20,12 +22,39 @@
     <script src="https://doodle51.github.io/bacc-studio/tracks.js" charset="utf-8"></script>
     <script src="https://doodle51.github.io/bacc-studio/layers.js" charset="utf-8"></script>
     <script src="https://doodle51.github.io/bacc-studio/easing-editor.js" charset="utf-8"></script>
-    <link
-  rel="icon"
-  href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🅱️</text></svg>"
-/>
   </head>
   <body>
+    <audio id="startup-bgm" src="startupsound.mp3" autoplay></audio>
+    <audio id="bgm" src="paintbgm.mp3" loop></audio>
+
+    <div style="position: absolute; bottom: 20px; right: 20px; z-index: 10;">
+      <label for="mute-bgm" style="color: white; font-size: 16px; margin-right: 5px;">Click2 Mute BGM</label>
+      <input type="checkbox" id="mute-bgm">
+    </div>
+
+    <script>
+
+      var startupAudio = document.getElementById('startup-bgm');
+      var bgmAudio = document.getElementById('bgm');
+
+
+      bgmAudio.volume = 0.02;
+
+      startupAudio.onended = function() {
+        bgmAudio.play();
+      };
+
+      var muteCheckbox = document.getElementById('mute-bgm');
+
+      muteCheckbox.addEventListener('change', function() {
+        bgmAudio.muted = muteCheckbox.checked; 
+      });
+    </script>
+  </body>
+</html>
+
+
+    
     <div class="main">
       <div class="panel" id="panel">
         <div class="menubar">
